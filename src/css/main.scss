@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500&family=Open+Sans:wght@400;600&display=swap');
+// @import 'base/fonts';
+
+@import 'reset';
+
+// base
+@import 'base/media';
+@import 'base/vars';
+@import 'base/mixins';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/anim';
+
+// common
+@import 'common/styles';
+@import 'common/buttons';
+
+// components
+
+@import '../components/accordion/accordion';
+@import '../components/tabs/tabs';
+@import '../components/slider/slider';
+
+// layout
+@import '../layout/header/header';
+@import '../layout/main/main';
+@import '../layout/footer/footer';
+
+// section
+@import '../section/one/one';
+@import '../section/two/two';
+@import '../section/three/three';
+@import '../section/four/four';
+@import '../section/five/five';
+@import '../section/six/six';
+@import '../section/seven/seven';

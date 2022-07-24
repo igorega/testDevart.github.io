@@ -1,0 +1,10 @@
+.seven {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+	background-color: #F9F9F9;
+
+	@include media(M) {
+		padding-top: 9rem;
+		padding-bottom: 10rem;
+	}
+}

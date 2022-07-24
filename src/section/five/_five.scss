@@ -1,0 +1,46 @@
+.five {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+	background-color: #F9FAFC;
+
+	@include media(M) {
+		padding-top: 8.6rem;
+		padding-bottom: 11rem;
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 3rem;
+		justify-content: space-between;
+		margin-top: 3.3rem;
+
+		@include media(M) {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 3rem 1.5rem;
+		}
+
+		@include media(XL) {
+			grid-template-columns: repeat(5, 1fr);
+			gap: 6rem 1.5rem;
+		}
+
+		&-item {
+			width: 100%;
+			max-width: 21rem;
+			height: 5rem;
+			@include centerFlex;
+			margin: auto;
+			padding-left: 2.5rem;
+			padding-right: 2.5rem;
+
+			@include media(M) {
+				height: 7rem;
+			}
+
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+}

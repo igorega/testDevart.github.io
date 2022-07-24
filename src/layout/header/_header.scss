@@ -1,0 +1,237 @@
+body {
+	&::after {
+		content: '';
+		@include cover;
+		position: fixed;
+		pointer-events: none;
+	}
+
+	&.menu-open {
+		// position: relative;
+		overflow: hidden;
+		padding-right: var(--scrollPadding); // scroll size (if he is present)
+
+		&::after {
+			z-index: 7;
+			pointer-events: auto;
+			transition: background-color var(--transition);
+			background-color: rgba(#000, .5);
+		}
+	}
+
+	&.close-transition {
+		&::after {
+			transition: background-color var(--transition);
+		}
+	}
+}
+
+$logoWidth: 9.6rem;
+
+.nav {
+	z-index: 10;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: var(--nav-height);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	padding-left: var(--padding);
+	padding-right: calc(var(--padding) + var(--scrollPadding, 0rem));
+	background-color: #25292D;
+	font-family: var(--font-second);
+	font-size: 1.6rem;
+	font-weight: 400;
+	color: rgba(#fff, .6);
+
+	&__item {
+
+	}
+
+	&__logo {
+		&-link {
+			display: block;
+		}
+
+		&-img {
+			width: $logoWidth;
+		}
+	}
+
+	&__toggle {
+		@include media(L) {
+			display: none;
+		}
+
+		&[aria-expanded='true'] {
+			~ .nav__menu {
+				transform: translateX(0);
+			}
+
+			.nav__toggle-icon {
+				svg {
+					transform: rotate(90deg);
+				}
+
+				path {
+					stroke: #fff;
+
+					&:nth-child(1) {
+						transform: translateX(.9rem) translateY(.1rem) rotate(45deg);
+					}
+
+					&:nth-child(2) {
+						stroke-dasharray: 225 299;
+						stroke-dashoffset: -7.2rem;
+					}
+
+					&:nth-child(3) {
+						transform: translateX(.9rem) translateY(.1rem) rotate(-45deg);
+					}
+
+					&:nth-child(4) {
+						stroke-dasharray: 225 299;
+						stroke-dashoffset: -7.2rem;
+					}
+
+					&:nth-child(5) {
+						transform: translateX(.9rem) translateY(.1rem) rotate(-45deg);
+					}
+
+					&:nth-child(6) {
+						transform: translateX(.9rem) translateY(.1rem) rotate(45deg);
+					}
+				}
+			}
+		}
+
+		&-icon {
+			position: relative;
+			right: calc(-1 * var(--padding));
+
+			svg {
+				transition: transform .5s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+
+			path {
+				transition: transform .5s cubic-bezier(0.4, 0, 0.2, 1),
+				stroke-dasharray .5s cubic-bezier(0.4, 0, 0.2, 1),
+				stroke-dashoffset .5s cubic-bezier(0.4, 0, 0.2, 1);
+
+				&:nth-child(1) {
+					transform-origin: 36% 40%;
+				}
+
+				&:nth-child(2) {
+					stroke-dasharray: 29 299;
+				}
+
+				&:nth-child(3) {
+					transform-origin: 35% 63%;
+				}
+
+				&:nth-child(4) {
+					stroke-dasharray: 29 299;
+				}
+
+				&:nth-child(5) {
+					transform-origin: 61% 52%;
+				}
+
+				&:nth-child(6) {
+					transform-origin: 62% 52%;
+				}
+			}
+		}
+	}
+
+	&__menu {
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: calc(100% - var(--nav-height));
+		background-color: #25292D;
+		transform: translateX(100%);
+		padding-top: 7rem;
+		padding-bottom: 3rem;
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		@include media(M) {
+			width: 50%;
+		}
+
+		@include media(L) {
+			position: static;
+			width: calc(100% - #{$logoWidth});
+			height: initial;
+			transform: none;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding-top: 0;
+			padding-bottom: 0;
+			overflow-x: initial;
+			overflow-y: initial;
+		}
+
+		&.transition {
+			transition: transform .5s;
+		}
+
+		&-item {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 2rem;
+			margin-top: 3rem;
+
+			@include media(L) {
+				gap: 3.8rem;
+				margin-top: 0;
+			}
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		@include media(L) {
+			flex-direction: row;
+		}
+
+		&-item {
+		&.is-active {
+			.nav__list-link {
+					// color: blue;
+				}
+			}
+		}
+
+		&-link {
+			display: block;
+			// font-size: 2rem;
+			padding: 1rem 2rem;
+			line-height: 1.7;
+
+			&:hover {
+				.nav__list-name {
+					&::after {
+						transform: rotateY(0);
+					}
+				}
+			}
+		}
+
+		&-name {
+			position: relative;
+			@include hoverLine;
+		}
+	}
+}

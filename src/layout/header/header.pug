@@ -1,0 +1,93 @@
+mixin burger
+	svg(xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 200 200')
+		g(stroke-width='6.5' stroke-linecap='round')
+			path(d='M72 82.286h28.75' fill='#009100' fill-rule='evenodd' stroke='#fff')
+			path(d='M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554' fill='none' stroke='#fff')
+			path(d='M72 125.143h28.75' fill='#009100' fill-rule='evenodd' stroke='#fff')
+			path(d='M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554' fill='none' stroke='#fff')
+			path(d='M100.75 82.286h28.75' fill='#009100' fill-rule='evenodd' stroke='#fff')
+			path(d='M100.75 125.143h28.75' fill='#009100' fill-rule='evenodd' stroke='#fff')
+
+header.nav
+	// item
+	.nav__item
+		.nav__logo
+			a.nav__logo-link(href='#')
+				img.nav__logo-img(src='img/layout/header/img/logo.svg', alt='logo')
+
+	// toggle button
+	button#navToggleBtn.nav__toggle(
+		type='button',
+		aria-controls='navListContent',
+		aria-expanded='false',
+		aria-label='Toggle navigation')
+		.nav__toggle-icon
+			+burger
+
+	// item
+	#navListContent.nav__menu
+		div
+
+		ul.ul.nav__list
+			li.nav__list-item.is-active
+				a.nav__list-link(href='#')
+					span.nav__list-name Products
+
+			li.nav__list-item
+				a.nav__list-link(href='#')
+					span.nav__list-name Store
+
+			li.nav__list-item
+				a.nav__list-link(href='#')
+					span.nav__list-name Support
+
+			li.nav__list-item
+				a.nav__list-link(href='#')
+					span.nav__list-name Blog
+
+			li.nav__list-item
+				a.nav__list-link(href='#')
+					span.nav__list-name Company
+
+		.nav__menu-item
+
+			.box
+				button.box__btn
+					img(src='img/layout/header/img/search.svg', alt='')
+
+				.box__content
+					button.box__back Back
+					// strong Some Content
+					// search
+					.search
+						form(action='')
+							input#search(type='search' name='search')
+							button Search
+
+			.box
+				button.box__btn.basket
+					img(src='img/layout/header/img/basket.svg', alt='')
+
+					.basket__count 1
+
+				.box__content
+					button.box__back Back
+					strong Some Content Bsket
+
+			.box
+				button.box__btn
+					// lang
+					.lang En
+
+				.box__content
+					button.box__back Back
+					strong Some Content lang
+
+			.box
+				button.box__btn
+					// user
+					.user AndreyV
+
+				.box__content
+					button.box__back Back
+					strong Some Content User

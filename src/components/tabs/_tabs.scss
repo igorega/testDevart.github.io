@@ -1,0 +1,301 @@
+.tabs {
+	margin-left: calc(-1 * var(--padding));
+	margin-right: calc(-1 * var(--padding));
+
+	@include media(M) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	&__content {
+		display: none;
+		padding-left: var(--padding);
+		padding-right: var(--padding);
+		opacity: 0;
+
+		@include media(M) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		&.is-active {
+			display: block;
+			animation: show .3s forwards;
+		}
+
+		img {
+			max-width: 100%;
+		}
+
+		&-wrap {
+			display: flex;
+			flex-direction: column-reverse;
+			justify-content: space-between;
+			gap: 3rem;
+
+			@include media(XL) {
+				flex-direction: row;
+			}
+		}
+
+		&-title {
+			margin-bottom: 1.7rem;
+			color: var(--color-black_1);
+			font-family: var(--font-second);
+			font-size: 2.6rem;
+			font-weight: 400;
+			line-height: 1.24;
+		}
+
+		&-video {
+			position: relative;
+			width: 100%;
+			height: 20rem;
+			max-width: 57rem;
+			@include centerFlex;
+			flex-shrink: 0;
+			margin: auto;
+
+			@include media(M) {
+				height: 34.7rem;
+			}
+
+			&::after {
+				content: '';
+				@include cover;
+				background-image: linear-gradient(290.16deg, #1E1229 -1.68%, #50147D 104.07%);
+				transition: background-image .3s;
+			}
+
+			&.hide-bg {
+				&::after {
+					background-image: none;
+				}
+			}
+
+			&.is-play {
+				video {
+					z-index: 2;
+				}
+
+				.play-btn {
+					opacity: 0;
+					pointer-events: none;
+				}
+			}
+
+			video {
+				@include cover;
+				object-fit: cover;
+			}
+		}
+
+		&-img {
+			z-index: 1;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: opacity .3s;
+
+			&.is-hide {
+				opacity: 0;
+				pointer-events: none;
+			}
+		}
+
+		&-desc {
+			max-width: 75rem;
+
+			p:not(:first-of-type) {
+				margin-top: 1.5rem;
+			}
+		}
+	}
+
+	&__items {
+		position: relative;
+		width: 100%;
+		flex-shrink: 0;
+		overflow-y: hidden;
+		overflow-x: auto;
+
+		@include media(M) {
+			width: initial;
+
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 100%;
+				height: .2rem;
+				background-color: #E8E9EB;
+			}
+		}
+	}
+
+	&__item {
+		position: relative;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+		color: var(--color-black_3);
+		font-family: var(--font-second);
+		font-size: 1.8rem;
+		font-weight: 400;
+		line-height: 5rem;
+		white-space: nowrap;
+		user-select: none;
+		transition: color .3s;
+
+		&:hover {
+			color: var(--color-black_1);
+
+			path {
+				fill: var(--color-black_1);
+			}
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: .2rem;
+		}
+
+		&::before {
+			background-color: #E8E9EB;
+
+			@include media(M) {
+				display: none;
+			}
+		}
+
+		&::after {
+			display: none;
+			background-color: var(--color-blue_2);
+		}
+
+		&.is-active {
+			pointer-events: none;
+			color: var(--color-black_1);
+
+			&::after {
+				display: block;
+			}
+
+			path {
+				fill: var(--color-black_1);
+			}
+		}
+
+		path {
+			transition: fill .3s;
+		}
+	}
+
+	&--vertical {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 3rem;
+
+		@include media(M) {
+			flex-direction: row;
+			gap: 5rem;
+		}
+
+		.tabs__items {
+			display: inline-flex;
+			flex-direction: row;
+
+			@include media(M) {
+				flex-direction: column;
+
+				&::before {
+					width: .2rem;
+					height: 100%;
+				}
+			}
+		}
+
+		.tabs__item {
+			@include media(M) {
+				padding-left: 2.8rem;
+			}
+
+			&::after {
+				@include media(M) {
+					bottom: initial;
+					top: 0;
+					width: .2rem;
+					height: 100%;
+				}
+			}
+		}
+
+		.tabs__content {
+			img {
+				filter: drop-shadow(.3rem .5rem 1.6rem rgba(#000, .1));
+
+				@include media(XL) {
+					margin-top: -5.7rem;
+				}
+			}
+		}
+	}
+
+	&--horizontal {
+		.tabs__items {
+			display: flex;
+
+			@include media(M) {
+				gap: 2rem;
+
+				&::before {
+					height: .3rem;
+				}
+			}
+
+			@include media(L) {
+				gap: 4rem;
+			}
+		}
+
+		.tabs__item {
+			display: inline-flex;
+			gap: 1rem;
+			font-weight: 500;
+			font-size: 1.6rem;
+			letter-spacing: .08em;
+			text-transform: uppercase;
+
+			@include media(M) {
+				padding-left: 0;
+				padding-right: 0;
+				line-height: 7.2rem;
+			}
+
+			&::after {
+				@include media(M) {
+					height: .3rem;
+				}
+			}
+		}
+
+		.tabs__contents {
+			padding-top: 3rem;
+
+			@include media(M) {
+				padding-top: 5rem;
+			}
+		}
+	}
+}

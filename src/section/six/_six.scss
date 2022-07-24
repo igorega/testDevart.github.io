@@ -1,0 +1,139 @@
+.six {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+
+	@include media(M) {
+		padding-top: 10rem;
+		padding-bottom: 11rem;
+	}
+
+	&__grid {
+		display: grid;
+		gap: 2rem 3rem;
+
+		@include media(L) {
+			grid-template-columns: repeat(2, auto);
+		}
+
+		&-item {
+			padding: 2rem;
+
+			@include media(M) {
+				padding: 4rem;
+			}
+
+			&:first-child,
+			&:last-child {
+				display: grid;
+				gap: 2rem;
+				background-color: #FBFCFD;
+				border: .1rem solid #F2F3F4;
+
+				@include media(M) {
+					grid-template-columns: 6rem 1fr;
+					gap: 4rem;
+				}
+
+				p {
+					margin-bottom: 1.2rem;
+				}
+			}
+
+			&:nth-child(2) {
+				background-color: var(--color-blue_2);
+				color: #fff;
+
+				@include media(L) {
+					max-width: 57rem;
+					grid-row: 1/ span 2;
+					grid-column: 2;
+				}
+
+				p {
+					font-size: 1.8rem;
+				}
+			}
+		}
+
+		&-icon {
+			display: block;
+			margin-bottom: 2rem;
+
+			@include media(M) {
+				margin-bottom: 4rem;
+			}
+		}
+
+		&-title {
+			margin-bottom: .4rem;
+			color: var(--color-black_1);
+			font-family: var(--font-second);
+			font-size: 2.2rem;
+			font-weight: 400;
+			line-height: 1.45;
+
+			&--lg {
+				margin-bottom: 1.5rem;
+				color: #fff;
+				font-size: 3.2rem;
+				font-weight: 500;
+				line-height: 1.38;
+
+				@include media(M) {
+					font-size: 3.6rem;
+				}
+			}
+		}
+
+		&-footer {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: flex-end;
+			gap: 1.5rem;
+			margin-top: 3.4rem;
+			font-family: var(--font-second);
+
+			&-item {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: flex-end;
+				gap: 1.5rem;
+				color: var(--color-accent_3);
+				font-weight: 400;
+				font-size: 2.2rem;
+				white-space: nowrap;
+			}
+
+			&-price {
+				font-weight: 500;
+				font-size: 4.6rem;
+			}
+		}
+
+		&-links {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 2rem;
+
+			@include media(M) {
+				gap: 4rem;
+			}
+		}
+
+		&-link {
+			display: grid;
+			grid-template-columns: repeat(2, auto);
+			gap: 1rem;
+			align-items: center;
+			justify-content: flex-start;
+			color: var(--color-blue_2);
+			transition: color .3s;
+
+			&:hover {
+				color: var(--color-blue_2_hover);
+			}
+		}
+	}
+}

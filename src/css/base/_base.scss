@@ -1,0 +1,20 @@
+body {
+	background-color: #fff;
+	color: var(--color-black_2);
+	font-family: var(--font-main);
+	font-size: 1.6rem;
+	font-weight: 400;
+}
+
+strong {
+	font-weight: 700;
+}
+
+p {
+	line-height: 1.75;
+}
+
+::selection {
+	color: #fff;
+	background-color: #000;
+}

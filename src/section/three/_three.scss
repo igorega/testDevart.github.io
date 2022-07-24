@@ -1,0 +1,14 @@
+.three {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+	background-color: #F9FAFC;
+
+	@include media(M) {
+		padding-top: 9.3rem;
+		padding-bottom: 11rem;
+	}
+
+	&__content {
+		margin-top: 3.4rem;
+	}
+}

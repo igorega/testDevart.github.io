@@ -1,0 +1,33 @@
+:root {
+	// fonts
+	--font-main: 'Open Sans', sans-serif;
+	--font-second: 'Fira Sans', sans-serif;
+
+	// colors
+	--color-black_1: #3D3D3D;
+	--color-black_2: #6A6A6A;
+	--color-black_3: #A8A8A8;
+	--color-blue_2: #0071CE;
+	--color-blue_2_hover: #0063b5;
+	--color-blue_5: #1C98FF;
+	--color-note: #FF3039;
+	--color-accent_2: #17BA5F;
+	--color-accent_2_hover: #14a353;
+	--color-accent_3: #FFD200;
+
+	// layout
+	--nav-height: 7rem;
+	--transition: 300ms;
+
+	// common
+	--container: 141rem;
+
+	--padding: 1.5rem;
+	@include media(M) {
+		--padding: 3rem;
+	}
+
+	@include media(L) {
+		--padding: 6rem;
+	}
+}

@@ -1,0 +1,119 @@
+.one {
+	display: flex;
+	align-items: center;
+	background-color: #27282C;
+
+	&__content {
+		position: relative;
+		min-height: 40rem;
+		display: flex;
+		align-items: center;
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+
+		&::after {
+			content: '';
+			@include cover;
+			background: url('../img/section/one/img/img.svg') no-repeat top right / contain;
+			background-position-x: 57vw;
+
+			@include media(L) {
+				background-position-x: right;
+			}
+		}
+	}
+
+	&__header {
+		z-index: 1;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		padding-left: var(--padding);
+		padding-right: var(--padding);
+	}
+
+	&__title {
+		margin-bottom: .7rem;
+		color: #fff;
+		font-family: var(--font-second);
+		font-weight: 300;
+		font-size: 4.4rem;
+		line-height: .96;
+
+		@include media(M) {
+			font-size: 5.4rem;
+		}
+
+		&-mark {
+			display: block;
+			margin-bottom: 2rem;
+			color: #C288FF;
+			font-weight: 400;
+			font-size: 2.2rem;
+			line-height: 1.45;
+		}
+
+		&-free {
+			position: relative;
+		}
+
+		&-badge {
+			position: absolute;
+			top: 0;
+			right: 0;
+			transform: translate(10%, -70%) skewX(-30deg);
+			padding: .4rem 1rem .4rem;
+			color: var(--color-accent_3);
+			background-color: rgba(#FFD200, .1);
+			font-weight: 500;
+			font-size: 1.2rem;
+			line-height: 1.24;
+			text-align: center;
+			letter-spacing: .08em;
+			text-transform: uppercase;
+
+			@include media(M) {
+				transform: translate(60%, -70%) skewX(-30deg);
+				padding: .6rem 1.5rem .6rem;
+				font-size: 1.5rem;
+			}
+
+			@include media(L) {
+				transform: translate(110%, -70%) skewX(-30deg);
+			}
+
+			span {
+				display: block;
+				transform: skewX(30deg);
+			}
+		}
+
+		strong {
+			font-weight: 500;
+		}
+	}
+
+	&__desc {
+		color: rgba(#fff, .8);
+		font-size: 1.8rem;
+		line-height: 1.63;
+	}
+
+	&__buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		margin-top: 2.8rem;
+
+		.btn--border {
+			color: #fff;
+			background-color: transparent;
+			border-color: rgba(255, 255, 255, 0.25);
+		}
+	}
+
+	.container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
