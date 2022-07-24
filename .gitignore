@@ -15,7 +15,8 @@ package-lock.json
 
 !ci/**
 
-build/fonts
+build/fonts/
+src/fonts/
 tasks
 .babelrc.json
 .browserslistrc
