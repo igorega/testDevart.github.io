@@ -120,6 +120,11 @@
 	margin: 0 !important;
 	border: .1rem solid #E8E9EB;
 	user-select: none;
+
+	&::before,
+	&::after {
+		display: none;
+	}
 }
 
 .swiper-pagination {
